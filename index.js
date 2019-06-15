@@ -18,6 +18,13 @@ function Trainer(name, tasks = []) {
   this.addTask = function(task) {
     this.tasks.push(task);
   };
+  this.removeTask = function(task) {
+    if (this.tasks.indexOf(task) === -1) {
+      console.log("Task does not exist");
+    } else {
+      this.tasks.splice(this.tasks.indexOf(task), 1);
+    }
+  };
   this.printTasks = function() {
     if (this.tasks.length === 1) {
       console.log("Nearly finished!");
@@ -26,6 +33,6 @@ function Trainer(name, tasks = []) {
   };
 }
 
-let ash = new Trainer("Ash");
-ash.addTask("Get a Pokemon");
+let ash = new Trainer("Ash", ["Get a Pokemon", "Leave Pallet Town"]);
+ash.removeTask("Get a Pokemon");
 ash.printTasks(); // Remaining tasks: Get a Pokemon
